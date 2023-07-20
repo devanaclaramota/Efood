@@ -1,28 +1,50 @@
-import { CardStyle, Title, Descrip, Tags, Star } from "./styles"
+import { CardStyle, Title, Descrip, Tags, Star, Item } from "./styles"
 import {BsFillStarFill} from 'react-icons/bs'
+import {Link} from 'react-router-dom'
 
 import { Tag } from "../Tag"
+import { useEffect, useState } from "react"
 export const Card = () => {
 
+    const [restaurante, setRestaurante] = useState([]);
+    useEffect(() => {
+        fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+        .then(res => res.json())
+        .then(res => setRestaurante(res))
+    },[])
+
+
     return(
-        <CardStyle>
+      
+             <CardStyle>
+            {restaurante.map((item) => (
+                <Item>
+                    <img src={item.capa} alt="" />
+                    
+                    <Tags>
+                        {item.destacado && <Tag txt={'Destaque da semana'}/>}
+                        
+                        <Tag txt={item.tipo} />
+                    </Tags>
+                    
+                    <div>  
+                        <Title>{item.titulo}</Title>
+                        <span>{item.avaliacao} <Star><BsFillStarFill /></Star> </span>
+                    </div>
+                    <Descrip>{item.descricao}</Descrip>
+                    <article>
+                     <Link to={'/cardapio'}>
+                        <Tag  txt={'Saiba mais'}/>
+                     </Link>   
+                    </article>
+                </Item>
+            ))}
            
-            <img src="https://placeholder.com/472x217" alt="" />
-             
-             <Tags>
-                 <Tag txt={'Destaque da semana'}/>
-                <Tag txt={'Japonesa'} />
-             </Tags>
-               
-            <div>  
-                <Title>Nome do restaurante</Title>
-                <span>4.9 <Star><BsFillStarFill /></Star> </span>
-            </div>
-            <Descrip>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam rerum id, voluptatibus omnis ullam corporis repellat officiis aspernatur, quidem ea unde ad blanditiis nisi saepe fugiat dolor eligendi repudiandae at.</Descrip>
-            <article>
-                <Tag  txt={'Saiba mais'}/>
-            </article>
+           
+            
             
         </CardStyle>
+
+       
     )
 }

@@ -1,15 +1,20 @@
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import { Global } from "./Styles";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { Lista } from "./components/Lista";
+import { Home } from "./pages/Home";
+import { Cardapio } from './pages/Cardapio';
 function App() {
   return (
     
     <>
     <Global />
-    <Header />
-    <Lista />
-    <Footer/>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/cardapio' element={<Cardapio />} />
+      </Routes>
+    </BrowserRouter>
+    
+    
     </>
   );
 }

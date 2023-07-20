@@ -5,11 +5,7 @@ export const Lista = () => {
     return(
         <Style>
             <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            
         </Style>
     )
 }
