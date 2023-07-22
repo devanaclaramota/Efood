@@ -4,9 +4,10 @@ export const Foot = styled.footer`
     background-color: #FFEBD9;
     color: #E66767 ;
 `
-export const Logo =styled.h2`
-text-align: center;
-padding: 16px;
+export const Logo =styled.img`
+    margin: auto;
+    display: block;
+    padding: 16px;
 
 `
 export const Redes =styled.ul`
@@ -30,6 +31,8 @@ li{
 export const Infs =styled.p`
     text-align:center;
     font-size: 10px;
+    
+
 
 
 `

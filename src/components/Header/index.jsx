@@ -1,10 +1,13 @@
-import {Head, Logo, Title} from './styles'
+import {Head,  Title, Logo} from './styles'
+import logo from '../../images/logo.svg'
 export const Header = () => {
 
     return(
         <Head>
-           
-            <Logo>Logo</Logo>
+            <div>
+                <Logo src={logo} alt="" />
+            </div>
+            
             <Title>Viva exeriências gastronômicas no conforto da sua casa </Title>
         </Head>
     )

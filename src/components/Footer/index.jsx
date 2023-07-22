@@ -1,10 +1,11 @@
 import {Foot, Logo, Redes, Infs} from './styles'
 import { BsFacebook, BsInstagram , BsTwitter} from 'react-icons/bs';
+import logo from '../../images/logo.svg'
 export const Footer = () => {
 
     return(
         <Foot>
-            <Logo>logo</Logo>
+            <Logo src={logo} />
             <Redes>
                 <li> <BsFacebook /> </li>
                 <li> <BsInstagram /> </li>

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 
 import { Tag } from "../Tag"
 import { useEffect, useState } from "react"
+
 export const Card = () => {
 
     const [restaurante, setRestaurante] = useState([]);
@@ -33,7 +34,7 @@ export const Card = () => {
                     </div>
                     <Descrip>{item.descricao}</Descrip>
                     <article>
-                     <Link to={'/cardapio'}>
+                     <Link to={'/cardapio/:id'}>
                         <Tag  txt={'Saiba mais'}/>
                      </Link>   
                     </article>

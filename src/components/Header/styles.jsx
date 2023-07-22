@@ -1,12 +1,19 @@
 import styled from 'styled-components'
+import fundo from '../../images/fundo.svg'
 export const Head  = styled.header`
-    background-color: #FFEBD9;
+    width: 100%;
+    background-image:url(${fundo});
     height:384px;
+   
 `
-export const Logo  = styled.h1`
-    text-align: center;
-    margin-bottom: 150px;
-    padding: 40px;
+export const Logo  = styled.img`
+    margin: auto;
+    display: block;
+    padding: 80px;
+    
+   
+
+    
     
 `
 export const Title  = styled.h1`
@@ -16,5 +23,7 @@ export const Title  = styled.h1`
     font-weight:bold;
     width: 540px;
     margin: 0 auto ;
+   
+    
 
 `
