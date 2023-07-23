@@ -14,10 +14,10 @@ export const Pratos = () => {
 
      
         const desc = () => {
-            if(cardap.cardapio[0].descricao.length > 120 ){
-              return   cardap.cardapio[0].descricao.slice(0,117) + '...'
+            if(cardap.cardapio.descricao.length > 120 ){
+              return   cardap.cardapio.descricao.slice(0,117) + '...'
             }
-            return cardap.cardapio[0].descricao
+            return cardap.cardapio.descricao
         }
     
        

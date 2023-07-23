@@ -9,12 +9,7 @@ export const Head  = styled.header`
 export const Logo  = styled.img`
     margin: auto;
     display: block;
-    padding: 80px;
-    
-   
-
-    
-    
+    padding: 80px;     
 `
 export const Title  = styled.h1`
     text-align: center;

@@ -1,7 +1,8 @@
-import { useParams} from 'react-router-dom'
+import { useParams , Link} from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import logo from '../../images/logo.svg'
-import {Header, Capa} from './styles'
+import close from '../../images/close.svg'
+import {Header, Capa, Lista, Item,  Modal, Close, Content, Image , Over} from "./styles"
 
 import { Footer } from '../../components/Footer'
 
@@ -12,15 +13,15 @@ export const Cardapio = () => {
             fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
             .then(res => res.json())
             .then(res => setRest(res))
-        },[])
+        },[id])
+
+        const [modal, setModal] = useState(false);
         
-        
-       
     return(
         <>
         <Header>
             <h4>{rest.titulo}</h4>
-             <img src={logo} alt="texto alternativo" />
+            <Link to={'/'}><img src={logo} alt="texto alternativo" /></Link> 
              <h4> 0 Produtos no carrinho </h4> 
         </Header>
         <Capa>
@@ -30,21 +31,41 @@ export const Cardapio = () => {
             </div>
            
         </Capa>
-    
+       <Lista>
+      {rest.cardapio.map((prato) => (
+        <>
+        <Item key={prato.id}>
+        <img src={prato.foto}alt="" />
+        <h5>{prato.nome}</h5>
+        <p>{prato.descricao}</p>
+        <button onClick={() => setModal(true)}>Adicionar ao carrinho </button>
+        </Item>
+        </>
+      ))}
+      {rest.cardapio.map((prato) => (
+          <Over className={modal ? 'visible': ''}>
+                    <Modal >
+                        
+                                <Close onClick={() => setModal(false)} src={close} alt="" />
+                          <Content>
+                          <Image src={prato.foto} alt="imagem do prato" />  
+                          <div>
+                                  <h5>{prato.nome}</h5>
+                                  <p>{prato.descricao}</p>
+                                  <p>Serve: {prato.porcao} </p>
+                                  <button>Adicionar ao carrinho - {prato.preco}</button>   
+                          </div>
+                          </Content>  
+                    </Modal>
+                      </Over> 
+
+                ))}
+   
+    </Lista>
+
+  
 
 
-        
-
-
-        {/* <ul>
-             <li>
-                    <img src={rest.cardapio[0].foto}alt="" />
-                    <h5>{rest.cardapio[0].nome}</h5>
-                    <p>{rest.cardapio[0].descricao}</p>
-                    {/* <button onClick={() => setModal(true)}>Adicionar ao carrinho</button> 
-            </li>
-        </ul>
-        */}
         
         <Footer />
         </>
