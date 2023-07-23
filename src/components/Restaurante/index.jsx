@@ -34,7 +34,7 @@ export const Card = () => {
                     </div>
                     <Descrip>{item.descricao}</Descrip>
                     <article>
-                     <Link to={'/cardapio/:id'}>
+                     <Link to={`/cardapio/${item.id}`}>
                         <Tag  txt={'Saiba mais'}/>
                      </Link>   
                     </article>
