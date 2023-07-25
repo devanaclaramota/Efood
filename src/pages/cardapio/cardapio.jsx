@@ -32,7 +32,7 @@ export const Cardapio = () => {
            
         </Capa>
        <Lista>
-      {rest.cardapio.map((prato) => (
+      {rest.cardapio?.map((prato) => (
         <>
         <Item key={prato.id}>
         <img src={prato.foto}alt="" />
@@ -40,9 +40,10 @@ export const Cardapio = () => {
         <p>{prato.descricao}</p>
         <button onClick={() => setModal(true)}>Adicionar ao carrinho </button>
         </Item>
+        
         </>
       ))}
-      {rest.cardapio.map((prato) => (
+      {rest.cardapio?.map((prato) => (
           <Over className={modal ? 'visible': ''}>
                     <Modal >
                         
